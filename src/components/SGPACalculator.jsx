@@ -4,7 +4,6 @@ import { Calculator, Save, FileDown, RotateCcw, Award } from 'lucide-react'
 import { calculateSGPA, GRADES, GRADE_POINTS } from '../utils/calculations'
 import { getSemesterSubjects, getSemesterCredits, RTU_CSE_SYLLABUS } from '../data/rtuSyllabus'
 import { jsPDF } from 'jspdf'
-import 'jspdf-autotable'
 
 const SGPACalculator = ({ onSave, department, year, initialData }) => {
   const [selectedSemester, setSelectedSemester] = useState(1)
