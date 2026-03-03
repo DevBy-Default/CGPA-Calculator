@@ -4,7 +4,6 @@ import Header from './components/Header'
 import WelcomeScreen from './components/WelcomeScreen'
 import SGPACalculator from './components/SGPACalculator'
 import CGPACalculator from './components/CGPACalculator'
-import PredictionCalculator from './components/PredictionCalculator'
 import './App.css'
 
 // LocalStorage keys
@@ -187,7 +186,6 @@ function App() {
                   semesterData={cgpaData} 
                   onUpdate={handleCGPAUpdate}
                 />
-                <PredictionCalculator cgpaData={cgpaData} />
               </motion.div>
             </div>
           </motion.main>
