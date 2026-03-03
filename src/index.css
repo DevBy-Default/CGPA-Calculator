@@ -1,39 +1,39 @@
 :root {
-  /* Dark Mode Colors - Cyberpunk Creative Theme */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #12121a;
-  --bg-card: rgba(30, 30, 50, 0.8);
-  --bg-card-solid: #1a1a2e;
+  /* Dark Mode Colors - Professional & Creative */
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a1f2e;
+  --bg-card: rgba(26, 31, 45, 0.95);
+  --bg-card-solid: #1e2433;
   
-  /* Vibrant neon accent colors */
-  --accent-primary: #00f5ff;
-  --accent-secondary: #ff00ff;
-  --accent-tertiary: #ffff00;
-  --accent-gradient: linear-gradient(135deg, #00f5ff, #ff00ff, #00f5ff);
-  --accent-glow: rgba(0, 245, 255, 0.4);
+  /* Professional yet creative accent colors */
+  --accent-primary: #3b82f6;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #06b6d4;
+  --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  --accent-glow: rgba(59, 130, 246, 0.25);
   
   /* Text colors */
-  --text-primary: #ffffff;
-  --text-secondary: #b8c0ec;
-  --text-muted: #6b7280;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
   
   /* Border colors */
-  --border-color: rgba(255, 255, 255, 0.12);
-  --border-focus: rgba(0, 245, 255, 0.6);
+  --border-color: rgba(148, 163, 184, 0.15);
+  --border-focus: rgba(59, 130, 246, 0.5);
   
   /* Status colors */
-  --success: #00ff88;
-  --warning: #ffaa00;
-  --error: #ff4466;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
   
-  /* Shadows with glow effects */
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 245, 255, 0.1);
-  --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 80px rgba(255, 0, 255, 0.15);
-  --shadow-glow: 0 0 30px var(--accent-glow);
+  /* Shadows - subtle but creative */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 40px rgba(59, 130, 246, 0.08);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 50px rgba(139, 92, 246, 0.12);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.2);
   
   /* Glass effect */
-  --glass-bg: rgba(20, 20, 35, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(26, 31, 45, 0.95);
+  --glass-border: rgba(148, 163, 184, 0.1);
   
   /* Spacing */
   --space-xs: 4px;
