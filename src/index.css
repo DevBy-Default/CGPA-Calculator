@@ -1,24 +1,39 @@
 :root {
-  /* Dark Mode Colors (Default) */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-card: rgba(26, 26, 46, 0.7);
+  /* Dark Mode Colors - Cyberpunk Creative Theme */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: rgba(30, 30, 50, 0.8);
   --bg-card-solid: #1a1a2e;
-  --accent-primary: #00d4ff;
-  --accent-secondary: #5a67d8;
-  --accent-gradient: linear-gradient(135deg, #00d4ff, #5a67d8);
+  
+  /* Vibrant neon accent colors */
+  --accent-primary: #00f5ff;
+  --accent-secondary: #ff00ff;
+  --accent-tertiary: #ffff00;
+  --accent-gradient: linear-gradient(135deg, #00f5ff, #ff00ff, #00f5ff);
+  --accent-glow: rgba(0, 245, 255, 0.4);
+  
+  /* Text colors */
   --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --border-focus: rgba(0, 212, 255, 0.5);
-  --success: #10b981;
-  --warning: #f59e0b;
-  --error: #ef4444;
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.5);
-  --glass-bg: rgba(26, 26, 46, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-secondary: #b8c0ec;
+  --text-muted: #6b7280;
+  
+  /* Border colors */
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(0, 245, 255, 0.6);
+  
+  /* Status colors */
+  --success: #00ff88;
+  --warning: #ffaa00;
+  --error: #ff4466;
+  
+  /* Shadows with glow effects */
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 245, 255, 0.1);
+  --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 80px rgba(255, 0, 255, 0.15);
+  --shadow-glow: 0 0 30px var(--accent-glow);
+  
+  /* Glass effect */
+  --glass-bg: rgba(20, 20, 35, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.1);
   
   /* Spacing */
   --space-xs: 4px;
@@ -33,11 +48,13 @@
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+  --radius-full: 9999px;
   
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 [data-theme="light"] {
