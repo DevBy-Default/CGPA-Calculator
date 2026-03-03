@@ -11,11 +11,10 @@ const SGPACalculator = ({ onSave, department, year, initialData }) => {
   const [result, setResult] = useState({ sgpa: 0, totalCredits: 0, totalPoints: 0 })
   const [showResult, setShowResult] = useState(false)
 
-  // Get available semesters based on year
+  // Get available semesters - show all 8 semesters for user convenience
   const availableSemesters = useMemo(() => {
-    const yearSemMap = { 1: [1, 2], 2: [3, 4], 3: [5, 6], 4: [7, 8] }
-    return year ? yearSemMap[year] || [1, 2, 3, 4, 5, 6, 7, 8] : [1, 2, 3, 4, 5, 6, 7, 8]
-  }, [year])
+    return [1, 2, 3, 4, 5, 6, 7, 8]
+  }, [])
 
   // Initialize subjects when semester changes
   useEffect(() => {
@@ -195,19 +194,45 @@ const SGPACalculator = ({ onSave, department, year, initialData }) => {
         <div className="semester-badge">Semester {selectedSemester}</div>
       </div>
 
-      {/* Semester Selector */}
-      <div className="semester-tabs">
-        {availableSemesters.map(sem => (
-          <motion.button
-            key={sem}
-            className={`sem-tab ${selectedSemester === sem ? 'active' : ''}`}
-            onClick={() => setSelectedSemester(sem)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+      {/* Semester Selector - User-friendly dropdown */}
+      <div className="semester-selector">
+        <label htmlFor="semester-select" className="semester-label">
+          Select Semester
+        </label>
+        <div className="semester-dropdown-wrapper">
+          <select
+            id="semester-select"
+            className="semester-dropdown"
+            value={selectedSemester}
+            onChange={(e) => setSelectedSemester(Number(e.target.value))}
           >
-            Sem {sem}
-          </motion.button>
-        ))}
+            {availableSemesters.map(sem => (
+              <option key={sem} value={sem}>
+                Semester {sem}
+              </option>
+            ))}
+          </select>
+          <div className="dropdown-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+        {/* Quick semester chips for easy access */}
+        <div className="semester-chips">
+          {availableSemesters.map(sem => (
+            <motion.button
+              key={sem}
+              className={`sem-chip ${selectedSemester === sem ? 'active' : ''}`}
+              onClick={() => setSelectedSemester(sem)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              title={`Semester ${sem}`}
+            >
+              {sem}
+            </motion.button>
+          ))}
+        </div>
       </div>
 
       {/* Subjects List */}
@@ -380,33 +405,101 @@ const SGPACalculator = ({ onSave, department, year, initialData }) => {
           color: white;
         }
 
-        .semester-tabs {
-          display: flex;
-          gap: var(--space-xs);
+        /* User-friendly semester selector styles */
+        .semester-selector {
           margin-bottom: var(--space-lg);
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-md);
+        }
+
+        .semester-label {
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: var(--text-secondary);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .semester-dropdown-wrapper {
+          position: relative;
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .semester-dropdown {
+          width: 100%;
+          padding: var(--space-md) var(--space-lg);
+          padding-right: 48px;
+          font-size: 1rem;
+          font-weight: 600;
+          background: var(--bg-secondary);
+          border: 2px solid var(--border-color);
+          border-radius: var(--radius-md);
+          color: var(--text-primary);
+          cursor: pointer;
+          appearance: none;
+          transition: all var(--transition-fast);
+        }
+
+        .semester-dropdown:hover {
+          border-color: var(--accent-primary);
+        }
+
+        .semester-dropdown:focus {
+          outline: none;
+          border-color: var(--accent-primary);
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .semester-dropdown option {
+          background: var(--bg-primary);
+          color: var(--text-primary);
+          padding: var(--space-sm);
+        }
+
+        .dropdown-icon {
+          position: absolute;
+          right: var(--space-md);
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+          color: var(--text-secondary);
+        }
+
+        .semester-chips {
+          display: flex;
+          gap: var(--space-sm);
           flex-wrap: wrap;
         }
 
-        .sem-tab {
-          padding: var(--space-sm) var(--space-md);
+        .sem-chip {
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background: var(--bg-secondary);
-          border: 1px solid var(--border-color);
-          border-radius: var(--radius-sm);
+          border: 2px solid var(--border-color);
+          border-radius: var(--radius-md);
           color: var(--text-secondary);
-          font-weight: 500;
+          font-size: 1rem;
+          font-weight: 700;
           cursor: pointer;
           transition: all var(--transition-fast);
         }
 
-        .sem-tab:hover {
+        .sem-chip:hover {
           border-color: var(--accent-primary);
-          color: var(--text-primary);
+          color: var(--accent-primary);
+          background: var(--bg-primary);
         }
 
-        .sem-tab.active {
+        .sem-chip.active {
           background: var(--accent-gradient);
           border-color: transparent;
           color: white;
+          box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
         }
 
         .subjects-container {

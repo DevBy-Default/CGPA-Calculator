@@ -1,21 +1,21 @@
-# TODO - CGPA Calculator Modification
+# TODO - Make Semester Selection User-Friendly
 
-## Task: Update syllabus data with exact subjects/credits from user and modify grade points
+## Task: Improve semester selection in CGPA Calculator
 
-### Information Gathered:
-- Current rtuSyllabus.js has generic RTU subjects that don't match user's provided data
-- calculations.js has different grade points (O=10, A+=9, A=8, etc.)
-- User wants exact subjects and credits for all 8 semesters pre-added
-- User wants grade points: A++:10, A+:9, A:8.5, B+:8, B:7.5, C+:7, C:6.5, D+:6, D:5.5, E+:5, E:4, F:0
+### Changes made:
 
-### Plan:
-- [x] 1. Update src/utils/calculations.js - Change GRADE_POINTS to user's grading scale
-- [x] 2. Update src/data/rtuSyllabus.js - Replace all 8 semesters with exact subjects/credits provided
+- [x] 1. Show all 8 semesters (removed year-based filtering)
+- [x] 2. Make semester selector more user-friendly with:
+   - Modern dropdown selector with "Select Semester" label
+   - Quick click chips (1-8) for easy semester switching
+   - Visual feedback with active state highlighting
 
-### Dependent Files:
-- src/utils/calculations.js - grade points modification
-- src/data/rtuSyllabus.js - complete syllabus overhaul
+### File edited:
+- `src/components/SGPACalculator.jsx`
 
-### Followup Steps:
-- [ ] Verify changes by running the app (npm run dev)
-- [ ] Test SGPA calculation with new grade points
+### Summary of changes:
+1. Changed `availableSemesters` to always return [1, 2, 3, 4, 5, 6, 7, 8]
+2. Replaced old tab buttons with:
+   - A dropdown select menu with custom styling
+   - Quick-access semester chips (1-8) that are easy to click
+3. Added proper CSS styles for the new components
